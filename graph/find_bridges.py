@@ -23,15 +23,6 @@ def find_bridges(gph, s):
     dfs(gph, s, used, h, d)
 
 
-"""
-5
-1 2
-2 3
-2 4
-4 5
-"""
-
-
 g = {
     1: [2],
     2: [3, 4],

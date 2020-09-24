@@ -9,19 +9,25 @@ import math
 Func = namedtuple("Func", ["pr", "type", "call"])
 
 
-operators = {
-    "+": Func(1, "double", lambda a, b: a + b),
-    "-": Func(1, "double", lambda a, b: a - b),
-    "*": Func(2, "double", lambda a, b: a * b),
-    "/": Func(2, "double", lambda a, b: a / b),
-    "^": Func(3, "double", lambda a, b: a ** b),
-    "!": Func(3, "single", lambda a: fact_tree(a)),
-    "sin": Func(1, "single", lambda a: math.sin(a)),
-    "pi": Func(3, "alias", lambda: math.pi),
+class OperatorTypes:
+    DOUBLE = "DOUBLE"
+    SINGLE = "SINGLE"
+    ALIAS = "ALIAS"
+
+
+OPERATORS = {
+    "+": Func(1, OperatorTypes.DOUBLE, lambda a, b: a + b),
+    "-": Func(1, OperatorTypes.DOUBLE, lambda a, b: a - b),
+    "*": Func(2, OperatorTypes.DOUBLE, lambda a, b: a * b),
+    "/": Func(2, OperatorTypes.DOUBLE, lambda a, b: a / b),
+    "^": Func(3, OperatorTypes.DOUBLE, lambda a, b: a ** b),
+    "!": Func(3, OperatorTypes.SINGLE, lambda a: _fact_tree(a)),
+    "sin": Func(1, OperatorTypes.SINGLE, lambda a: math.sin(a)),
+    "pi": Func(3, OperatorTypes.ALIAS, lambda: math.pi),
 }
 
 
-def sub_tree(left, right):
+def _sub_tree(left, right):
     if left > right:
         return 1
     if left == right:
@@ -30,26 +36,26 @@ def sub_tree(left, right):
         return left * right
 
     middle = (left + right) // 2
-    return sub_tree(left, middle) * sub_tree(middle + 1, right)
+    return _sub_tree(left, middle) * _sub_tree(middle + 1, right)
 
 
-def fact_tree(n):
+def _fact_tree(n):
     if n < 0:
         return 0
     if n == 0:
         return 1
     if n == 1 or n == 2:
         return n
-    return sub_tree(2, n)
+    return _sub_tree(2, n)
 
 
-def parser(string):
+def _parser(string):
     tokens = []
     num = []
     opt = []
     s = string.replace(" ", "")
     for idx in range(len(s)):
-        if operators.get(_make_token(opt)):
+        if OPERATORS.get(_make_token(opt)):
             if opt:
                 tokens.append(_make_token(opt))
                 opt = []
@@ -99,13 +105,16 @@ def _make_token(sub):
     return token
 
 
-def shunting_yard(tokens):
+def _shunting_yard(tokens):
     stack = []
     out = []
     for token in tokens:
-        if token in operators:
-            while stack and stack[-1] != '(' \
-                    and operators[token].pr <= operators[stack[-1]].pr:
+        if token in OPERATORS:
+            while stack:
+                if stack[-1] == "(":
+                    break
+                if OPERATORS[token].pr > OPERATORS[stack[-1]].pr:
+                    break
                 out.append(stack.pop())
             stack.append(token)
         elif token == ')':
@@ -123,31 +132,25 @@ def shunting_yard(tokens):
     return out
 
 
-def calculator(polish):
+def _reverse_polish_notation(polish):
     stack = []
     for token in polish:
-        if token in operators:
-            if operators[token].type == "double":
+        if token in OPERATORS:
+            if OPERATORS[token].type == OperatorTypes.DOUBLE:
                 y, x = stack.pop(), stack.pop()
-                stack.append(operators[token].call(x, y))
-            elif operators[token].type == "single":
+                stack.append(OPERATORS[token].call(x, y))
+            elif OPERATORS[token].type == OperatorTypes.SINGLE:
                 x = stack.pop()
-                stack.append(operators[token].call(x))
-            elif operators[token].type == "alias":
-                stack.append(operators[token].call())
+                stack.append(OPERATORS[token].call(x))
+            elif OPERATORS[token].type == OperatorTypes.ALIAS:
+                stack.append(OPERATORS[token].call())
         else:
             stack.append(token)
     return stack.pop()
 
 
-formula = "-1+(1+2.76)*4.1 *pi +5!"
-
-formula_tokens = parser(formula)
-sort_tokens = shunting_yard(formula_tokens)
-assert calculator(sort_tokens) == 167.43079234774024
-
-formula = "sin(3- 2)"
-
-formula_tokens = parser(formula)
-sort_tokens = shunting_yard(formula_tokens)
-assert calculator(sort_tokens) == 0.8414709848078965
+def reverse_polish_notation(formula):
+    formula_tokens = _parser(formula)
+    sort_tokens = _shunting_yard(formula_tokens)
+    answer = _reverse_polish_notation(sort_tokens)
+    return answer

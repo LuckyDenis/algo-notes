@@ -16,26 +16,10 @@ def djs(graph, start_vertex):
 
     while queue:
         v = queue.pop(0)
-        for to, cost in g[v].items():
+        for to, cost in graph[v].items():
             if costs[v] + cost < costs[to]:
                 queue.append(to)
                 costs[to] = costs[v] + cost
                 path[to] = v
 
     return costs, path
-
-
-g = {
-    0: {4: 3},
-    1: {0: 1, 2: 3, 3: 5},
-    2: {0: 7, 1: 2},
-    3: {1: 4, 5: 5, 7: 8},
-    4: {2: 2, 6: 6},
-    5: {6: 9},
-    6: {7: 1},
-    7: {}
-}
-
-costs, path = djs(g, 0)
-print(*costs.values(), sep=", ")
-print(*path.values(), sep=", ")
