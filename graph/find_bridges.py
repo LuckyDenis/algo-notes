@@ -21,23 +21,3 @@ def find_bridges(gph, s):
     h = dict().fromkeys(gph, -1)
     d = dict().fromkeys(gph, -1)
     dfs(gph, s, used, h, d)
-
-
-g = {
-    1: [2],
-    2: [3, 4],
-    3: [2],
-    4: [2, 5],
-    5: [4]
-}
-find_bridges(g, 1)
-
-print('-' * 20)
-g = {
-    1: [2, 3, 4],
-    2: [1],
-    3: [1],
-    4: [1]
-}
-find_bridges(g, 1)
-
