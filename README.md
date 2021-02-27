@@ -1,4 +1,7 @@
-![Alt text](./icon-name.svg)
+![Alt text](./icon-name.svg)  
+
+| [russian](./README.md#Список-алгоритмов-[russian]) 
+|
 
 ### Список алгоритмов [russian]
 | [Алгебра](./README.md#Алгебра) 
@@ -19,7 +22,9 @@
 
 #### Графы
 * [Обход графа в глубину](./notes/ru/graph/depth.md)
+* [Обход графа в ширину](./notes/ru/graph/breadth.md)
 
 #### Строки
 #### Структуры данных
+* [Стек](./notes/ru/structure/stack.md)
 #### Алгоритмы на последовательностях
