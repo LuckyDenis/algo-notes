@@ -1,14 +1,16 @@
 Разложение на множители (факторизация)
 --------------------------------------
-***
-Разложение на множители, или <span style="color:yellow">Факторизация</span> целых чисел 
+| [Главная](../../../README.md#Список-алгоритмов-[russian])
+| [Алгебра](../../../README.md#Алгебра)
+|
+
+> Разложение на множители, или **Факторизация** целых чисел 
 (англ. _integer factorization_) — представление числа 
 в виде произведения его множителей.
 
 
 Реализация
 ----------
-***
 * #### Наивная реализация
 
 |Время|
@@ -17,17 +19,19 @@
   
 ```python
 def factorization(n):
-    muls = []
+    multipliers = []
     i = 2
     while i <= n:
         if n % i == 0:
-            muls.append(i)
+            multipliers.append(i)
             n = n // i
         else:
             i = i + 1
     
     if n != 0:
-        muls.append(n)
+        multipliers.append(n)
+    
+    return multipliers
 
         
 print(factorization(45)) # [3, 3, 5] 
@@ -43,17 +47,19 @@ from math import sqrt
 
 
 def factorization(n):
-    muls = []
+    multipliers = []
     i = 2
     while i <= sqrt(n):
         if n % i == 0:
-            muls.append(i)
+            multipliers.append(i)
             n = n // i
         else:
             i = i + 1
     
     if n != 0:
-        muls.append(n)
+        multipliers.append(n)
+    
+    return multipliers
 
 
 print(factorization(45)) # [3, 3, 5] 
