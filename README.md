@@ -16,6 +16,7 @@
 #### Алгебра
 * [Вычисление n-числа Фибоначчи](./notes/ru/algebra/fibonacci.md)
 * [Разложение на множители (факторизация)](./notes/ru/algebra/factorization.md)
+* [Генерация правильных скобочных последовательностей](./notes/ru/algebra/gen_bracket_seq.md)
 
 #### Сортировки
 * [Сортировка подсчетом](./notes/ru/sorting/counting.md)
@@ -25,6 +26,12 @@
 * [Обход графа в ширину](./notes/ru/graph/breadth.md)
 
 #### Строки
+* [Проверка слова на палиндром](./notes/ru/string/is_palindrome.md)
+
 #### Структуры данных
 * [Стек](./notes/ru/structure/stack.md)
+* [Система непересекающихся множеств](./notes/ru/structure/union_find.md)
+
 #### Алгоритмы на последовательностях
+* [Поиск подмассива с максимальной суммой. Алгоритм Джея Кадане](./notes/ru/sequentia/maximum_subarray_problem.md)
+* [Поиск подмассива с минимальной суммой. Алгоритм Джея Кадане](./notes/ru/sequentia/minimun_subarray_problem.md)
