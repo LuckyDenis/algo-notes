@@ -36,3 +36,4 @@
 #### Алгоритмы на последовательностях
 * [Поиск подмассива с максимальной суммой. Алгоритм Джея Кадане](./notes/ru/sequentia/maximum_subarray_problem.md)
 * [Поиск подмассива с минимальной суммой. Алгоритм Джея Кадане](./notes/ru/sequentia/minimun_subarray_problem.md)
+* [Поиск k-ой порядковой статистики](./notes/ru/sequentia/find_order_statistic.md)
