@@ -20,6 +20,7 @@
 
 #### Сортировки
 * [Сортировка подсчетом](./notes/ru/sorting/counting.md)
+* [Быстрая сортировка](./notes/ru/sorting/quick_sort.md)
 
 #### Графы
 * [Обход графа в глубину](./notes/ru/graph/depth.md)
