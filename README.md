@@ -26,6 +26,7 @@
 #### Графы
 * [Обход графа в глубину](./notes/ru/graph/depth.md)
 * [Обход графа в ширину](./notes/ru/graph/breadth.md)
+* [Поиск кротчайшего пути. Алгоритм Дейкстры](./notes/ru/graph/dijkstra.md)
 
 #### Строки
 * [Проверка слова на палиндром](./notes/ru/string/is_palindrome.md)
