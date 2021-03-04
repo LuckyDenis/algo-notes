@@ -26,6 +26,7 @@
 #### Графы
 * [Обход графа в глубину](./notes/ru/graph/depth.md)
 * [Обход графа в ширину](./notes/ru/graph/breadth.md)
+* [Поиск кротчайшего пути. Алгоритм Дейкстры](./notes/ru/graph/dijkstra.md)
 
 #### Строки
 * [Проверка слова на палиндром](./notes/ru/string/is_palindrome.md)
@@ -34,6 +35,7 @@
 * [Стек](./notes/ru/structure/stack.md)
 * [Система непересекающихся множеств](./notes/ru/structure/union_find.md)
 * [Дерево отрезков](./notes/ru/structure/segment_tree.md)
+* [Префиксный массив сумм](./notes/ru/structure/prefix_sum_array.md)
 
 #### Алгоритмы на последовательностях
 * [Поиск подмассива с максимальной суммой. Алгоритм Джея Кадане](./notes/ru/sequentia/maximum_subarray_problem.md)
