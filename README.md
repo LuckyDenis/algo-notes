@@ -27,7 +27,9 @@
 * [Обход графа в глубину](./notes/ru/graph/depth.md)
 * [Обход графа в ширину](./notes/ru/graph/breadth.md)
 * [Поиск кротчайшего пути. Алгоритм Дейкстры](./notes/ru/graph/dijkstra.md)
-* [Наименьший общий предок. LCA](./notes/ru/graph/lca.md)
+* [Наименьший общий предок для бинарного дерева. LCA](notes/ru/graph/lca_for_bin_tree.md)
+* [Проверка наличия цикла в графе](./notes/ru/graph/find_graph_loop.md)
+* [Топологическая сортировка](./notes/ru/graph/topological_sort.md)
 
 #### Строки
 * [Проверка слова на палиндром](./notes/ru/string/is_palindrome.md)
