@@ -22,12 +22,14 @@
 * [Сортировка подсчетом](./notes/ru/sorting/counting.md)
 * [Быстрая сортировка](./notes/ru/sorting/quick_sort.md)
 * [Сортировка слиянием](./notes/ru/sorting/merge_sort.md)
+* [Подсчет инверсий без использования Таблицы Инверсий](./notes/ru/sorting/count_inversion_not_use_table.md)
 
 #### Графы
 * [Обход графа в глубину](./notes/ru/graph/depth.md)
 * [Обход графа в ширину](./notes/ru/graph/breadth.md)
 * [Поиск кротчайшего пути. Алгоритм Дейкстры](./notes/ru/graph/dijkstra.md)
-* [Наименьший общий предок для бинарного дерева. LCA](notes/ru/graph/lca_for_bin_tree.md)
+* [Наименьший общий предок для дерева. LCA](./notes/ru/graph/lca.md)
+* [Наименьший общий предок для бинарного дерева. LCA](./notes/ru/graph/lca_for_bin_tree.md)  
 * [Проверка наличия цикла в графе](./notes/ru/graph/find_graph_loop.md)
 * [Топологическая сортировка](./notes/ru/graph/topological_sort.md)
 
