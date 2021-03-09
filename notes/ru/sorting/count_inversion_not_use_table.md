@@ -16,11 +16,10 @@
 |O(n log n)  |O(n log n)   |O(n log n)      |O(log n) |+         |O(n log n)      |
 
 ```python
-cnt = 0
+cnt = [0]
 
 
 def merge_sort(arr):
-    global cnt
     if len(arr) <= 1:
         return
 
@@ -36,7 +35,7 @@ def merge_sort(arr):
             i += 1
         else:
             arr[k] = right[j]
-            cnt += len(left) - i
+            cnt[0] += len(left) - i
             j += 1
         k += 1
 
@@ -53,5 +52,5 @@ def merge_sort(arr):
 
 nums = [5, 4, 2, 1]
 merge_sort(nums)
-print(cnt) # 6
+print(cnt[0]) # 6
 ```

@@ -16,6 +16,10 @@
 ----------
 * #### Перебор всех вершин
 
+|Время           |
+|:--------------:|
+|O(V<sup>2</sup>)|
+
 ```python
 def search_next_vertex(graph, visited, distances):
     v = None
