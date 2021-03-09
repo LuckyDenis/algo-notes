@@ -24,17 +24,30 @@ saippuakivikauppias (продавец мыла; торговец
 
 
 ```python
+def is_valid(ch):
+    return ch.isalpha()
+
+
 def is_palindrome(string):
-    left_idx = 0
-    right_idx = len(string) - 1
-    while left_idx < right_idx:
-        if string[left_idx].lower() != string[right_idx].lower():
+    n = len(string)
+    left = 0
+    right = n - 1
+    while left < right:
+        while left < n and not is_valid(string[left]):
+            left += 1
+        while right > 0 and not is_valid(string[right]):
+            right -= 1
+
+        if string[left].lower() != string[right].lower():
             return False
-        left_idx += 1
-        right_idx -= 1
+
+        left += 1
+        right -= 1
+
     return True
 
 
-print(is_palindrome('tenet')) # True
-print(is_palindrome('hello')) # False
+print(is_palindrome('tenet, Tenet'))  # True
+print(is_palindrome('hello'))  # False
+
 ```
