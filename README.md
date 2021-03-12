@@ -43,7 +43,9 @@
 * [Система непересекающихся множеств](./notes/ru/structure/union_find.md)
 * [Дерево отрезков](./notes/ru/structure/segment_tree.md)
 * [Префиксный массив сумм](./notes/ru/structure/prefix_sum_array.md)
-* [Двоичная куча (min)](notes/ru/structure/binary_heap_min.md)
+* [Двоичная куча (min)](./notes/ru/structure/binary_heap_min.md)
+* [Бинарное дерево поиска](./notes/ru/structure/binary_search_tree.md)
+* [Декартовое дерево](./notes/ru/structure/treap.md)
 
 #### Алгоритмы на последовательностях
 * [Поиск подмассива с максимальной суммой. Алгоритм Джея Кадане](./notes/ru/sequentia/maximum_subarray_problem.md)
