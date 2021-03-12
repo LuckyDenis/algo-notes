@@ -20,53 +20,29 @@ _LCA_ от англ. _lowest (least) common ancestor_.
 |O(n log n)   |O(log n)|
 
 ```python
-
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
-
-
-bin_tree_root = Node(1)
-bin_tree_root.left = Node(2)
-bin_tree_root.left.left = Node(3)
-bin_tree_root.left.left.left = Node(5)
-bin_tree_root.left.right = Node(4)
-bin_tree_root.right = Node(6)
-bin_tree_root.right.left = Node(7)
-bin_tree_root.right.right = Node(8)
-bin_tree_root.right.right.left = Node(9)
-
-
-def dfs(start):
+def dfs(graph, start):
     stack = [start]
-    dist = dict()
-    parent = dict()
-    dist[start.data] = 0
-    parent[start.data] = start.data
+    dist = dict().fromkeys(graph, -1)
+    parent = dict().fromkeys(graph, -1)
+    dist[start] = 0
+    parent[start] = start
     n = 0
     max_h = 0
     while stack:
         n += 1
         v = stack.pop()
-        if max_h < dist[v.data]:
-            max_h = dist[v.data]
-
-        if v.left:
-            stack.append(v.left)
-            dist[v.left.data] = dist[v.data] + 1
-            parent[v.left.data] = v.data
-        if v.right:
-            stack.append(v.right)
-            dist[v.right.data] = dist[v.data] + 1
-            parent[v.right.data] = v.data
+        if max_h < dist[v]:
+            max_h = dist[v]
+        for u in graph[v]:
+            stack.append(u)
+            dist[u] = dist[v] + 1
+            parent[u] = v
 
     return parent, dist, n, max_h
 
 
-def preprocess(root):
-    p, d, n, max_h = dfs(root)
+def preprocess(graph, start):
+    p, d, n, max_h = dfs(graph, start)
 
     dp = dict()
     for i in range(1, n + 1):
@@ -100,5 +76,25 @@ def lca(v, u, dp, d, p, max_h):
     return p[v]
 
 
-print(lca(5, 4, *preprocess(bin_tree_root))) # 2
+def main():
+    g = {
+        1: [2, 6],
+        2: [3, 4],
+        3: [5],
+        4: [],
+        5: [],
+        6: [7, 8, 9],
+        7: [],
+        8: [10],
+        9: [],
+        10: []
+    }
+    dp, d, p, max_h = preprocess(g, 1)
+
+    queries = [(5, 4), (7, 9), (5, 10)]
+    for v, u in queries:
+        print(lca(v, u, dp, d, p, max_h)) # 2, 6, 1
+
+
+main()
 ```

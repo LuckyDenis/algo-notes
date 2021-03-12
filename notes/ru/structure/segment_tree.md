@@ -78,5 +78,4 @@ print(segment_tree.tree)  # [42, 20, 22, 7, 13, 12, 10, 5, 2, 6, 7, 8, 4, 4, 6, 
 segment_tree.set(1, 100)
 print(segment_tree.tree)  # [140, 118, 22, 105, 13, 12, 10, 5, 100, 6, 7, 8, 4, 4, 6, 9]
 print(segment_tree.query_sum(2, 8))  # 35
-
 ```
